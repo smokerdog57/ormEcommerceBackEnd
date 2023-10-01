@@ -1,4 +1,5 @@
-const { ProductTag } = require('../models');
+// Populates the Product model's table with initial data (products) by calling the seedProducts function.
+import { ProductTag } from ('../models');
 
 const productTagData = [
   {
@@ -53,4 +54,4 @@ const productTagData = [
 
 const seedProductTags = () => ProductTag.bulkCreate(productTagData);
 
-module.exports = seedProductTags;
+export default seedProductTags;
