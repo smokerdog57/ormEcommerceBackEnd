@@ -1,46 +1,109 @@
+Operational Concept
+
+"This application serves as a back-end eCommerce database server, utilizing key technologies such as ORM, MySQL2, Sequelize, Node.js, Express, and Insomnia. These technologies are employed to build and test the application, allowing for the use of Insomnia's CRUD commands to interact with API routes and their associated functionalities."
+
+Database Setup and Initialization:
+
+Create the Database: Initiate an SQL command-line session using MS Visual Studio.  Add a new bash terminal. Navigate to the project root directory and execute following commands
+	mysql -u root -pw;
+	source ./db/schema.sql;
+
+Initialize Database Models: Execute the bash command: node ./seeds/index.js This command utilizes Sequelize to generate table models and establish associations based on the definitions in ./models/index.js. The file ./models/index.js imports Category.js, Product.js, ProductTag.js, and Tag.js scripts, which extend the built-in Sequelize model class and initialize model properties.Initialize the database models and see the data: Populate the database with initial data for testing by With these steps, your database is configured, database models are established, associations are defined, and initial data is inserted. The ORM E-Commerce Back End is now ready to handle API requests via Insomnia.
+
+Server back end application Start:
+
+Start the Server Application: Execute the following bash command to run the ./server.js script: npm start. This script establishes a connection to the 'ecommerce_db' database by calling ./config/connection.js and sets up API routes by calling ./routes/index.js. Your server application is now running and ready to serve API requests.
+
+Testing:
+
+After following the steps outlined above and addressing any error messages that may arise, conduct the following tests to ensure the application's integrity:
+
+Test001: Execute the SQL command show databases to verify that ecommerce_db is displayed.
+Test002: Execute the SQL command selebct * from category to verify the seeding of the Category model (table).
+Test003: Execute the SQL command select * from products to verify the seeding of the Product model (table).
+Test004: Execute the SQL command select * from product_tag to verify the seeding of the Product_Tag model (table).
+Test005: Execute the SQL command select * from tag to verify the seeding of the Tag model (table).
+Test006: Utilize Insomnia to execute API GET routes for categories and confirm that data is displayed in a properly formatted JSON format.
+Test007: Utilize Insomnia to execute an API GET route for products and ensure that data is displayed in a properly formatted JSON format.
+Test008: Utilize Insomnia to execute an API GET route for tags and confirm that data is displayed in a properly formatted JSON format.
+Test009: Utilize Insomnia to execute API POST, PUT, and DELETE routes for categories and verify that the Insomnia preview window displays the appropriate data.
+
+
 # 13 Object-Relational Mapping (ORM): E-Commerce Back End
 
+### Link to GitHub repository:  https://github.com/smokerdog57/ormEcommerceBackEnd
+### Castify link:   			https://...
 
-## Installation
-  
-1. create a new github repository named 'sqlCliEmployeeDatabase'
-2. launch microsoft visual studio Code app
-3. enter cli:  cd ~/bootcamp/homework
-4. enter cli:  git clone <repository> // creates sqlCliEmployeeDatabase directory
-5. enter cli:  cd sqlCliEmployeeDatabase
-6. enter cli:  npm init
-7. enter cli:  npm install --save mysql2
-8. enter cli:  npm install inquirer@8.2.4
-9. enter cli:  npm install cli-table --save
-10. After running above steps create, copy and/or confirm the following directory structure and files:
-	assets			// copy from challenge
-	db
-	   connection.js	// create new file
-	   index.js			// create new file	   
-	   schema.sql		// create new file
-	   seed.sql			// create new file   
-	index.js			// create new file
-	node_modules		// confirm: created by npm			
-	.gitignore			// create new file
-	package-lock.json	// confirm: created by npm	
-	package.json		// confirm: created by npm
-	README.md			// copy from challenge
+## Badges
+    
+![github](https://img.shields.io/badge/github-Profile-lightgrey.svg) ![jses6](https://img.shields.io/badge/JavaScript--ES6-yellow.svg) ![node.js](https://img.shields.io/badge/node.js-12.0-green.svg) ![npm](https://img.shields.io/badge/npm-6.14.4-blue.svg) plus add the following badges:
 
-## Your Task
+	1. Express
+	2. chrome castify
+	3. [Sequelize](https://www.npmjs.com/package/sequelize)
+	4. [MySQL2](https://www.npmjs.com/package/mysql2)	
+	5. [dotenv](https://www.npmjs.com/package/dotenv)
 
-Internet retail, also known as **e-commerce**, plays a significant role within the electronics industry, as it empowers businesses and consumers alike to conveniently engage in online buying and selling of electronic products. In the latest available data from 2021, the industry in the United States alone was estimated to have generated the substantial amount of US$2.54 trillion, according to the United Nations Conference on Trade and Development. E-commerce platforms like Shopify and WooCommerce provide a suite of services to businesses of all sizes. Due to the prevalence of these platforms, developers should understand the fundamental architecture of e-commerce sites.
+## Table of Contents
+- [Description](#description)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Requirements](#requirements)
+- [Mock-up](#mock-up)
+- [License](#license)
+- [Contributing](#contributing)
+- [Tests](#tests)
+- [Questions](#questions)
+
+## Description
 
 Your task is to build the back end for an e-commerce site by modifying starter code. You’ll configure a working Express.js API to use Sequelize to interact with a MySQL database.
 
 Because this application won’t be deployed, you’ll also need to provide a link to a walkthrough video that demonstrates its functionality and all of the acceptance criteria being met. You’ll need to submit a link to the video and add it to the readme of your project.
 
-## User Story
-
-```md
-AS A manager at an internet retail company
-I WANT a back end for my e-commerce website that uses the latest technologies
-SO THAT my company can compete with other e-commerce companies
-```
+## Installation
+  
+1. create a new github repository named 'ormEcommerceBackEnd'
+2. launch microsoft visual studio Code app
+3. enter cli:  cd ~/bootcamp/homework
+4. enter cli:  git clone <repository> // creates ormEcommerceBackEnd directory
+5. enter cli:  cd ormEcommerceBackEnd
+6. enter cli:  npm init
+7. enter cli:  npm install --save mysql2
+8. enter cli:  npm install inquirer@8.2.4
+9. enter cli:  npm install cli-table --save
+xx. enter cli: npm install dotenv
+10. After running above steps create, copy and/or confirm the following directory structure and files:
+	assets			// copy from challenge
+	config
+	   connection.js	// create new file
+	db
+	   schema.sql			// xxx
+	models
+	   Category.js			// xxx
+	   index.js			// xxx	   
+	   Product.js			// xxx
+	   ProductTag.js		// xxx
+	   Tag.js			// xxx 
+	routes
+	   api
+		category-routes.js
+		index.js
+		product-routes.js
+		tag-routes.js	
+	   index.js
+	seeds
+	   category-seeds.js
+	   index.js
+	   product-seeds.js
+	   product-tag-seeds.js
+	   tag-seeds.js
+	.env
+	.gitignore
+	node_modules
+	package.json		// confirm: created by npm		
+	package-lock.json	// confirm: created by npm	
+	README.md		// copy from challenge
 
 ## Acceptance Criteria
 
@@ -212,75 +275,55 @@ After creating the models and routes, run `npm run seed` to seed data to your da
 
 Create the code needed in `server.js` to sync the Sequelize models to the MySQL database on server start.
 
-## Grading Requirements
+## Usage
 
-> **Note**: If a Challenge assignment submission is marked as “0”, it is considered incomplete and will not count towards your graduation requirements. Examples of incomplete submissions include the following:
->
-> * A repository that has no code
->
-> * A repository that includes a unique name but nothing else
->
-> * A repository that includes only a README file but nothing else
->
-> * A repository that only includes starter code
+1. open MS Visual Studio and terminal
+2. enter cli:  cd homework/ormEcommerceBackEnd
+2. enter cli:  mysql -u root -p <when prompted enter password>
+3. enter cli:  source ./db/schema.sql    // create and use database
+5. open a second MS Visual Studio terminal session
+6. enter cli:  cd homework/ormEcommerceBackEnd
+7. enter cli:  npm run seed
+8. enter cli:  npm start
 
-This Challenge is graded based on the following criteria: 
+## Mock-Up
 
-### Deliverables: 10%
+The following video shows an example of the application being used from the command line:
+xxxxxx
 
-* The GitHub repository containing your application code.
 
-### Walkthrough Video: 37%
+## License
 
-* A walkthrough video that demonstrates the functionality of the e-commerce back end must be submitted, and a link to the video should be included in your readme file.
+github, jses6, express.js
+https://opensource.org/licenses/MIT
 
-* The walkthrough video must show all of the technical acceptance criteria being met.
+npm
+https://opensource.org/licenses/Artistic-2.0
 
-* The walkthrough video must demonstrate how to create the schema from the MySQL shell.
 
-* The walkthrough video must demonstrate how to seed the database from the command line.
-
-* The walkthrough video must demonstrate how to start the application’s server.
-
-* The walkthrough video must demonstrate GET routes for all categories, all products, and all tags being tested in Insomnia.
-
-* The walkthrough video must demonstrate GET routes for a single category, a single product, and a single tag being tested in Insomnia.
-
-* The walkthrough video must demonstrate POST, PUT, and DELETE routes for categories, products, and tags being tested in Insomnia.
-
-### Technical Acceptance Criteria: 40%
-
-* Satisfies all of the preceding acceptance criteria plus the following:
-
-  * Connects to a MySQL database using the [MySQL2](https://www.npmjs.com/package/mysql) and [Sequelize](https://www.npmjs.com/package/sequelize) packages.
-
-  * Stores sensitive data, like a user’s MySQL username, password, and database name, using environment variables through the [dotenv](https://www.npmjs.com/package/dotenv) package.
-
-  * Syncs Sequelize models to a MySQL database on the server start.
-
-  * Includes column definitions for all four models outlined in the Challenge instructions.
-
-  * Includes model associations outlined in the Challenge instructions.
-
-### Repository Quality: 13%
-
-* Repository has a unique name.
-
-* Repository follows best practices for file structure and naming conventions.
-
-* Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
-
-* Repository contains multiple descriptive commit messages.
-
-* Repository contains quality readme with description and a link to a walkthrough video.
-
-## Review
-
-You are required to submit BOTH of the following for review:
-
-* A walkthrough video demonstrating the functionality of the application and all of the acceptance criteria being met.
-
-* The URL of the GitHub repository. Give the repository a unique name and include a readme describing the project.
-
----
+- - -
 © 2023 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
+
+## Contributing
+
+1. Sandy Smith (tutor):  Sandy helped me understand the acceptance criteria.
+
+## Tests
+
+```
+Test001: execute schema.sql, then verify employees db is created and table schemas are properly created.
+Test002: execute npm run seed, then verify the employees db is seeded with the starter date.
+Test003: execute npm start, then via insomnia ...
+```
+
+## Questions
+  
+### Github username
+smokerdog57
+
+### Github url
+https://github.com/smokerdog57/sqlCliEmployeeDatabase
+  
+### Contact me
+email: smokerdog57@gmail.com
+phone: 941-221-1132
