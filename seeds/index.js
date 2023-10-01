@@ -1,26 +1,35 @@
-const seedCategories = require('./category-seeds');
-const seedProducts = require('./product-seeds');
-const seedTags = require('./tag-seeds');
-const seedProductTags = require('./product-tag-seeds');
+//automates the process of initializing and seeding a database with initial data.
 
-const sequelize = require('../config/connection');
+// import seed functions
+import seedCategories from './category-seeds';
+import seedProducts from './product-seeds';
+import seedTags from './tag-seeds';
+import seedProductTags from './product-tag-seeds';
+
+import sequelize from '../config/connection';
 
 const seedAll = async () => {
-  await sequelize.sync({ force: true });
-  console.log('\n----- DATABASE SYNCED -----\n');
-  await seedCategories();
-  console.log('\n----- CATEGORIES SEEDED -----\n');
+  try {
+    await sequelize.sync({ force: true });
+    console.log('\n----- DATABASE SYNCED -----\n');
 
-  await seedProducts();
-  console.log('\n----- PRODUCTS SEEDED -----\n');
+    await seedCategories();
+    console.log('\n----- CATEGORIES SEEDED -----\n');
 
-  await seedTags();
-  console.log('\n----- TAGS SEEDED -----\n');
+    await seedProducts();
+    console.log('\n----- PRODUCTS SEEDED -----\n');
 
-  await seedProductTags();
-  console.log('\n----- PRODUCT TAGS SEEDED -----\n');
+    await seedTags();
+    console.log('\n----- TAGS SEEDED -----\n');
 
-  process.exit(0);
+    await seedProductTags();
+    console.log('\n----- PRODUCT TAGS SEEDED -----\n');
+
+    process.exit(0);
+  } catch (error) {
+    console.error('Error seeding the database:', error);
+    process.exit(1);
+  }
 };
 
 seedAll();
