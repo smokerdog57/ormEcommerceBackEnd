@@ -1,4 +1,4 @@
-// Populates the Product model's table with initial data (products) by calling the seedProducts function.
+// Populates the ProductTag model's table with initial data (products) by calling the seedProductTags function.
 import { ProductTag } from ('../models');
 
 const productTagData = [

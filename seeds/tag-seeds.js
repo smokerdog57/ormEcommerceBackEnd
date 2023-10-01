@@ -1,4 +1,5 @@
-const { Tag } = require('../models');
+// Populates the Tag model's table with initial data (tags) by calling the seedTags function.
+import { Tag } from ('../models');
 
 const tagData = [
   {
@@ -29,4 +30,4 @@ const tagData = [
 
 const seedTags = () => Tag.bulkCreate(tagData);
 
-module.exports = seedTags;
+export default seedTags;
