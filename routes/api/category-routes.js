@@ -5,7 +5,7 @@ import { Category, Product } from '../../models';
 // find all categories and include associated products
 router.get('/', (req, res) => {
   Category.findAll({
-    include: [Product], // be sure to include its associated Products
+    include: [Product],
   })
     .then((categories) => res.json(categories))
     .catch((err) => res.status(500).json({ error: 'Internal server error', details: err }));

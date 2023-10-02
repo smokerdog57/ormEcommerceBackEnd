@@ -8,7 +8,11 @@ Create the Database: Initiate an SQL command-line session using MS Visual Studio
 	mysql -u root -pw;
 	source ./db/schema.sql;
 
-Initialize Database Models: Execute the bash command: node ./seeds/index.js This command utilizes Sequelize to generate table models and establish associations based on the definitions in ./models/index.js. The file ./models/index.js imports Category.js, Product.js, ProductTag.js, and Tag.js scripts, which extend the built-in Sequelize model class and initialize model properties.Initialize the database models and see the data: Populate the database with initial data for testing by With these steps, your database is configured, database models are established, associations are defined, and initial data is inserted. The ORM E-Commerce Back End is now ready to handle API requests via Insomnia.
+Initialize Database Models: Execute the bash command: node ./seeds/index.js This command utilizes Sequelize to generate table models and establish associations based on the definitions in ./models/index.js. The file ./models/index.js imports Category.js, Product.js, ProductTag.js, and Tag.js scripts, which extend the built-in Sequelize model class and initialize model properties.
+
+Seed populates the database with initial data for testing. 
+
+In summary, the steps are: database is configured, database models are established, associations are defined, and initial data is inserted. The ORM E-Commerce Back End is now ready to handle API requests via Insomnia.
 
 Server back end application Start:
 
