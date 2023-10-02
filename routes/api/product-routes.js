@@ -1,5 +1,4 @@
 // This script defines the `/api/products` endpoint
-
 import { Router } from 'express';   // import Router library from express
 import { Product, Category, Tag, ProductTag } from '../../models';  // import model (table class instances
 const router = Router();
