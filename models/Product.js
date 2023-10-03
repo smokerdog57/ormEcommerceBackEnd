@@ -2,7 +2,7 @@
 // imports Sequalize class instance from connection.js for database connection to enable this module to 
 // define the model and associate it with the database connection.
 import { Model, DataTypes, DECIMAL } from 'sequelize';
-import sequelize from './config/connection.js';
+import sequelize from '../config/connection.js';
 
 // create Product instance of Model
 class Product extends Model { }

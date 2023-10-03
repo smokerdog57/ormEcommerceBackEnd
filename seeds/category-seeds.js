@@ -1,5 +1,6 @@
 // Populates the Category model's table with initial data (categories) by calling the seedCategories function. 
-import { Category } from '../models';
+import Category from '../models/Category.js';
+
 
 const categoryData = [
   {

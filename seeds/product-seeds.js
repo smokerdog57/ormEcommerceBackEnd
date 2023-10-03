@@ -1,6 +1,6 @@
 // Populates the Product model's table with initial data (products) by calling the seedProducts function.
+import Product from '../models/Product.js';
 
-import { Product } from ('../models');
 
 const productData = [
   {

@@ -1,5 +1,5 @@
 // Populates the Tag model's table with initial data (tags) by calling the seedTags function.
-import { Tag } from ('../models');
+import Tag from '../models/Tag.js';
 
 const tagData = [
   {

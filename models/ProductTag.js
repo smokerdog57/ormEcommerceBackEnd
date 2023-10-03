@@ -2,7 +2,7 @@
 // imports Sequalize class instance from connection.js for database connection to enable this module to 
 // define the model and associate it with the database connection.
 import { Model, DataTypes } from 'sequelize';
-import sequelize from './config/connection';
+import sequelize from '../config/connection.js';
 import { types } from 'util';  // does not appear to be used.
 
 // create ProductTag instance of Model
