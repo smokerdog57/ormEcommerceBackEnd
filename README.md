@@ -1,23 +1,108 @@
 # 13 Object-Relational Mapping (ORM): E-Commerce Back End
 
-## Your Task
+### Link to GitHub repository:  https://github.com/smokerdog57/ormEcommerceBackEnd
+### Castify link:   			https://drive.google.com/file/d/1ElNgsKaSbCrkKC_MV9yOo0GPZpPversy/view
 
-Internet retail, also known as **e-commerce**, plays a significant role within the electronics industry, as it empowers businesses and consumers alike to conveniently engage in online buying and selling of electronic products. In the latest available data from 2021, the industry in the United States alone was estimated to have generated the substantial amount of US$2.54 trillion, according to the United Nations Conference on Trade and Development. E-commerce platforms like Shopify and WooCommerce provide a suite of services to businesses of all sizes. Due to the prevalence of these platforms, developers should understand the fundamental architecture of e-commerce sites.
+## Badges
+    
+![github](https://img.shields.io/badge/github-Profile-lightgrey.svg)
+![JavaScript](https://img.shields.io/badge/JavaScript-yellow.svg)
+![node.js](https://img.shields.io/badge/node.js-12.0-green.svg)
+![npm](https://img.shields.io/badge/npm-6.14.4-blue.svg)
+![Express](https://img.shields.io/badge/Express-red.svg)
+![chrome castify](https://img.shields.io/badge/chrome%20castify-orange.svg)
+![Sequelize](https://img.shields.io/badge/Sequelize-blue.svg)](https://www.npmjs.com/package/sequelize)
+![MySQL2](https://img.shields.io/badge/MySQL2-blue.svg)](https://www.npmjs.com/package/mysql2)
+![dotenv](https://img.shields.io/badge/dotenv-blue.svg)](https://www.npmjs.com/package/dotenv)
 
-Your task is to build the back end for an e-commerce site by modifying starter code. You’ll configure a working Express.js API to use Sequelize to interact with a MySQL database.
+## Table of Contents
+- [Description](#description)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Requirements](#requirements)
+- [Mock-up](#mock-up)
+- [License](#license)
+- [Contributing](#contributing)
+- [Tests](#tests)
+- [Questions](#questions)
 
-Because this application won’t be deployed, you’ll also need to provide a link to a walkthrough video that demonstrates its functionality and all of the acceptance criteria being met. You’ll need to submit a link to the video and add it to the readme of your project.
+## Description
 
-## User Story
+This application serves as a back-end eCommerce database server, utilizing key technologies such as ORM, MySQL2, Sequelize, Node.js, Express, and Insomnia. These technologies are employed to build and test the application, allowing for the use of Insomnia's CRUD commands to interact with API routes and their associated functionalities.  The database is dropped and recreated by executing the following commands:
+	mysql -u root -pw;
+	source ./db/schema.sql;
 
-```md
-AS A manager at an internet retail company
-I WANT a back end for my e-commerce website that uses the latest technologies
-SO THAT my company can compete with other e-commerce companies
-```
+Following the creation of the database, the database models (tables) are defined and the initial data is seeded.  This is accomplished by executing the bash command: node ./seeds/index.js This command utilizes Sequelize to generate table models and establish associations based on the definitions in ./models/index.js. The file ./models/index.js imports Category.js, Product.js, ProductTag.js, and Tag.js scripts, which extend the built-in Sequelize model class and initialize model properties.
 
-## Acceptance Criteria
+The next step is to start the backend server.  To start Server, execute the following bash command to run the ./server.js script: npm start. This script establishes a connection to the 'ecommerce_db' database by calling ./config/connection.js and sets up API routes by calling ./routes/index.js. the server application is now running and ready to serve API requests via Insomnia.
 
+## Installation
+  
+1. create a new github repository named 'ormEcommerceBackEnd'
+2. launch microsoft visual studio Code app
+3. enter cli:  cd ~/bootcamp/homework
+4. enter cli:  git clone <repository> // creates ormEcommerceBackEnd directory
+5. enter cli:  cd ormEcommerceBackEnd
+6. enter cli:  npm init // this initializes the package.json project file
+7. edit the package.json file to add the following dependencies:
+	a. "dotenv": "^8.2.0",
+  b. "express": "^4.17.1",
+  c. "mysql2": "^2.1.0",
+  d. "sequelize": "^5.21.7"
+8. enter cli: npm install //install the dependencies
+9. install Insomnia website: Go to Insomnia website using your web browser, download and install.
+	9.1 Go to the official Insomnia website at https://insomnia.rest/download/ to download the client.
+	9.2 Download Insomnia for Windows.
+	9.3 Run the downloaded installer and follow the installation instructions.
+10. After running above steps create, copy and/or confirm the following directory structure and files:
+	assets			// copy from challenge
+	config
+	   connection.js	// create new file
+	db
+	   schema.sql			// xxx
+	models
+	   Category.js			// xxx
+	   index.js			// xxx	   
+	   Product.js			// xxx
+	   ProductTag.js		// xxx
+	   Tag.js			// xxx 
+	routes
+	   api
+		category-routes.js
+		index.js
+		product-routes.js
+		tag-routes.js	
+	   index.js
+	seeds
+	   category-seeds.js
+	   index.js
+	   product-seeds.js
+	   product-tag-seeds.js
+	   tag-seeds.js
+	.env
+	.gitignore
+	node_modules
+	package.json		// confirm: created by npm		
+	package-lock.json	// confirm: created by npm	
+	README.md		// copy from challenge
+
+## Usage
+
+1. open MS Visual Studio and terminal
+2. enter cli:  cd homework/ormEcommerceBackEnd
+2. enter cli:  mysql -u root -p <when prompted enter password>
+3. enter cli:  source ./db/schema.sql    // create the database
+5. open a second MS Visual Studio terminal session
+6. enter cli:  cd homework/ormEcommerceBackEnd
+7. enter cli:  npm run seed
+8. enter cli:  npm start
+9. Launch Insomnia from your desktop or the Start menu.
+10. After installation is complete, launch Insomnia from your applications or programs menu.
+11. Open Insomnia and set up a new workspace.
+12. Create Requests: creating requests to test the API endpoints and organized into folders and CRUD request and request bodies.
+13. Use the created requests to test the app by sending requests to API server (e.g., http://localhost:3001) and receive responses.
+
+## Requirements
 ```md
 GIVEN a functional Express.js API
 WHEN I add my database name, MySQL username, and MySQL password to an environment variable file
@@ -31,230 +116,44 @@ THEN the data for each of these routes is displayed in a formatted JSON
 WHEN I test API POST, PUT, and DELETE routes in Insomnia
 THEN I am able to successfully create, update, and delete data in my database
 ```
-
 ## Mock-Up
 
-The following animation shows the application's GET routes to return all categories, all products, and all tags being tested in Insomnia:
+The following video the shows the application in use:
+https://drive.google.com/file/d/1ElNgsKaSbCrkKC_MV9yOo0GPZpPversy/view
 
-![In Insomnia, the user tests “GET tags,” “GET Categories,” and “GET All Products.”.](./Assets/13-orm-homework-demo-01.gif)
+## License
 
-The following animation shows the application's GET routes to return a single category, a single product, and a single tag being tested in Insomnia:
+github, jses6, express.js
+https://opensource.org/licenses/MIT
 
-![In Insomnia, the user tests “GET tag by id,” “GET Category by ID,” and “GET One Product.”](./Assets/13-orm-homework-demo-02.gif)
+npm
+https://opensource.org/licenses/Artistic-2.0
 
-The following animation shows the application's POST, PUT, and DELETE routes for categories being tested in Insomnia:
 
-![In Insomnia, the user tests “DELETE Category by ID,” “CREATE Category,” and “UPDATE Category.”](./Assets/13-orm-homework-demo-03.gif)
-
-Your walkthrough video should also show the POST, PUT, and DELETE routes for products and tags being tested in Insomnia.
-
-## Getting Started
-
-This Challenge will require a video submission. Refer to the [Fullstack Blog Video Submission Guide](https://coding-boot-camp.github.io/full-stack/computer-literacy/video-submission-guide) for additional guidance on creating a video.
-
-You’ll need to use the [MySQL2](https://www.npmjs.com/package/mysql2) and [Sequelize](https://www.npmjs.com/package/sequelize) packages to connect your Express.js API to a MySQL database and the [dotenv](https://www.npmjs.com/package/dotenv) package to use environment variables to store sensitive data.
-
-Use the `schema.sql` file in the `db` folder to create your database with MySQL shell commands. Use environment variables to store sensitive data like your MySQL username, password, and database name.
-
-### Database Models
-
-Your database should contain the following four models, including the requirements listed for each model:
-
-* `Category`
-
-  * `id`
-
-    * Integer.
-  
-    * Doesn't allow null values.
-  
-    * Set as primary key.
-  
-    * Uses auto increment.
-
-  * `category_name`
-  
-    * String.
-  
-    * Doesn't allow null values.
-
-* `Product`
-
-  * `id`
-  
-    * Integer.
-  
-    * Doesn't allow null values.
-  
-    * Set as primary key.
-  
-    * Uses auto increment.
-
-  * `product_name`
-  
-    * String.
-  
-    * Doesn't allow null values.
-
-  * `price`
-  
-    * Decimal.
-  
-    * Doesn't allow null values.
-  
-    * Validates that the value is a decimal.
-
-  * `stock`
-  
-    * Integer.
-  
-    * Doesn't allow null values.
-  
-    * Set a default value of `10`.
-  
-    * Validates that the value is numeric.
-
-  * `category_id`
-  
-    * Integer.
-  
-    * References the `Category` model's `id`.
-
-* `Tag`
-
-  * `id`
-  
-    * Integer.
-  
-    * Doesn't allow null values.
-  
-    * Set as primary key.
-  
-    * Uses auto increment.
-
-  * `tag_name`
-  
-    * String.
-
-* `ProductTag`
-
-  * `id`
-
-    * Integer.
-
-    * Doesn't allow null values.
-
-    * Set as primary key.
-
-    * Uses auto increment.
-
-  * `product_id`
-
-    * Integer.
-
-    * References the `Product` model's `id`.
-
-  * `tag_id`
-
-    * Integer.
-
-    * References the `Tag` model's `id`.
-
-### Associations
-
-You'll need to execute association methods on your Sequelize models to create the following relationships between them:
-
-* `Product` belongs to `Category`, and `Category` has many `Product` models, as a category can have multiple products but a product can only belong to one category.
-
-* `Product` belongs to many `Tag` models, and `Tag` belongs to many `Product` models. Allow products to have multiple tags and tags to have many products by using the `ProductTag` through model.
-
-> **Hint:** Make sure you set up foreign key relationships that match the column we created in the respective models.
-
-### Fill Out the API Routes to Perform RESTful CRUD Operations
-
-Fill out the unfinished routes in `product-routes.js`, `tag-routes.js`, and `category-routes.js` to perform create, read, update, and delete operations using your Sequelize models.
-
-Note that the functionality for creating the many-to-many relationship for products has already been completed for you.
-
-> **Hint**: Be sure to look at the mini-project code for syntax help and use your model's column definitions to figure out what `req.body` will be for POST and PUT routes!
-
-### Seed the Database
-
-After creating the models and routes, run `npm run seed` to seed data to your database so that you can test your routes.
-
-### Sync Sequelize to the Database on Server Start
-
-Create the code needed in `server.js` to sync the Sequelize models to the MySQL database on server start.
-
-## Grading Requirements
-
-> **Note**: If a Challenge assignment submission is marked as “0”, it is considered incomplete and will not count towards your graduation requirements. Examples of incomplete submissions include the following:
->
-> * A repository that has no code
->
-> * A repository that includes a unique name but nothing else
->
-> * A repository that includes only a README file but nothing else
->
-> * A repository that only includes starter code
-
-This Challenge is graded based on the following criteria: 
-
-### Deliverables: 10%
-
-* The GitHub repository containing your application code.
-
-### Walkthrough Video: 37%
-
-* A walkthrough video that demonstrates the functionality of the e-commerce back end must be submitted, and a link to the video should be included in your readme file.
-
-* The walkthrough video must show all of the technical acceptance criteria being met.
-
-* The walkthrough video must demonstrate how to create the schema from the MySQL shell.
-
-* The walkthrough video must demonstrate how to seed the database from the command line.
-
-* The walkthrough video must demonstrate how to start the application’s server.
-
-* The walkthrough video must demonstrate GET routes for all categories, all products, and all tags being tested in Insomnia.
-
-* The walkthrough video must demonstrate GET routes for a single category, a single product, and a single tag being tested in Insomnia.
-
-* The walkthrough video must demonstrate POST, PUT, and DELETE routes for categories, products, and tags being tested in Insomnia.
-
-### Technical Acceptance Criteria: 40%
-
-* Satisfies all of the preceding acceptance criteria plus the following:
-
-  * Connects to a MySQL database using the [MySQL2](https://www.npmjs.com/package/mysql) and [Sequelize](https://www.npmjs.com/package/sequelize) packages.
-
-  * Stores sensitive data, like a user’s MySQL username, password, and database name, using environment variables through the [dotenv](https://www.npmjs.com/package/dotenv) package.
-
-  * Syncs Sequelize models to a MySQL database on the server start.
-
-  * Includes column definitions for all four models outlined in the Challenge instructions.
-
-  * Includes model associations outlined in the Challenge instructions.
-
-### Repository Quality: 13%
-
-* Repository has a unique name.
-
-* Repository follows best practices for file structure and naming conventions.
-
-* Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
-
-* Repository contains multiple descriptive commit messages.
-
-* Repository contains quality readme with description and a link to a walkthrough video.
-
-## Review
-
-You are required to submit BOTH of the following for review:
-
-* A walkthrough video demonstrating the functionality of the application and all of the acceptance criteria being met.
-
-* The URL of the GitHub repository. Give the repository a unique name and include a readme describing the project.
-
----
+- - -
 © 2023 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
+
+## Contributing
+
+1. Sandy Smith (tutor):  Sandy helped me understand the acceptance criteria.
+
+## Tests
+
+```
+Test001: execute schema.sql, then verify ecommerce_db is created.
+Test002: execute npm run seed, then verify the employees db is seeded with the starter date.
+Test003: execute npm start, then verify the server is listening on port 3001.
+Test004: using insomnia test the CRUD methods to exercise the database.
+```
+
+## Questions
+  
+### Github username
+smokerdog57
+
+### Github url
+https://github.com/smokerdog57/ormEcommerceBackEnd
+  
+### Contact me
+email: smokerdog57@gmail.com
+phone: 941-221-1132
