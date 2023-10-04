@@ -1,6 +1,6 @@
 // Populates the Product model's table with initial data (products) by calling the seedProducts function.
-import Product from '../models/Product.js';
-
+//import Product from '../models/Product.js';
+const { Product } = require('../models');
 
 const productData = [
   {
@@ -37,4 +37,5 @@ const productData = [
 
 const seedProducts = () => Product.bulkCreate(productData);
 
-export default seedProducts;
+//export default seedProducts;
+module.exports = seedProducts;

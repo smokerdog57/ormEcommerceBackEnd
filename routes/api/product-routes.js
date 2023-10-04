@@ -1,8 +1,12 @@
 // This script defines the `/api/products` endpoint
-import { Router } from 'express';   // import Router library from express
-import { Product, Category, Tag, ProductTag } from '../../models';  // import model (table class instances
-const router = Router();
-
+// import { Router } from 'express';   // import Router library from express
+// // import model (table) class instances
+// import Category from '../../models/Category.js';
+// import Product from '../../models/Product.js';
+// import Tag from '../../models/Tag.js';
+// import ProductTag from '../../models/ProductTag.js';
+const router = require('express').Router();
+const { Product, Category, Tag, ProductTag } = require('../../models');
 
 // get all products and include its associated Category and Tag data. This route is triggered when a GET 
 // request is made to the root path '/api/products'. json formatted array of product objects are returned.
@@ -175,5 +179,4 @@ router.delete('/:id', (req, res) => {
     });
 });
 
-
-export default router;
+module.exports = router;

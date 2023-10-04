@@ -1,12 +1,12 @@
-// defines Sequelize model for the "Product" table and imports Sequalize classes: Model and and Datatypes.
-// imports Sequalize class instance from connection.js for database connection to enable this module to 
-// define the model and associate it with the database connection.
-import { Model, DataTypes, DECIMAL } from 'sequelize';
-import sequelize from '../config/connection.js';
+// import important parts of sequelize library
+const { Model, DataTypes } = require('sequelize');
+// import our database connection from config.js
+const sequelize = require('../config/connection');
 
-// create Product instance of Model
-class Product extends Model { }
+// Initialize Product model (table) by extending off Sequelize's Model class
+class Product extends Model {}
 
+// set up fields and rules for Product model
 Product.init(
   {
     id: {
@@ -20,7 +20,7 @@ Product.init(
       allowNull: false,
     },
     price: {
-      type: DataTypes.DECIMAL,
+      type: DataTypes.DECIMAL(10, 2),
       allowNull: false,
       validate: {
         isDecimal: true,
@@ -31,18 +31,18 @@ Product.init(
       allowNull: false,
       defaultValue: 10,
       validate: {
-        isInt: true,
+        isNumeric: true,
       },
     },
     category_id: {
       type: DataTypes.INTEGER,
+      allowNull: true,
       references: {
-        model: 'Category', // Specify the referenced model.
+        model: 'category',
         key: 'id',
       },
     },
   },
-  // define Sequalize model configuration options
   {
     sequelize,
     timestamps: false,
@@ -51,5 +51,5 @@ Product.init(
     modelName: 'product',
   }
 );
-// export initialized Sequelize model instance
-export default Product;
+
+module.exports = Product;

@@ -1,6 +1,11 @@
 // Import necessary modules
-import { Model, DataTypes } from 'sequelize';
-import sequelize from '../config/connection.js';
+//import { Model, DataTypes } from 'sequelize';
+//import sequelize from '../config/connection.js';
+
+const { Model, DataTypes } = require('sequelize');
+
+const sequelize = require('../config/connection.js');
+
 
 // Define the Tag model by extending Model class
 class Tag extends Model {}
@@ -30,4 +35,5 @@ Tag.init(
 );
 
 // Export the initialized Sequelize model instance
-export default Tag;
+//export default Tag;
+module.exports = Tag;

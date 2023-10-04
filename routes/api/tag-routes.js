@@ -1,8 +1,12 @@
 // This script defines the `/api/tags` endpoint
-import { Router } from 'express';
-import { Tag, Product, ProductTag } from '../../models';
+// import { Router } from 'express';
+// // import model (table) class instances
+// import Tag from '../../models/Tag.js';
+// import Product from '../../models/Product.js';
+// import ProductTag from '../../models/ProductTag.js';
 
-const router = Router();
+const router = require('express').Router();
+const { Tag, Product, ProductTag } = require('../../models');
 
 router.get('/', (req, res) => {
   Tag.findAll({
@@ -77,4 +81,4 @@ router.delete('/:id', (req, res) => {
     .catch((err) => res.status(500).json(err)); // Status 500 for server error
 });
 
-export default router;
+module.exports = router;

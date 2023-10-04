@@ -2,10 +2,21 @@
 //so that they can be easily imported and used in other parts of the application.
 
 // Import models
-import Product from './Product';
-import Category from './Category';
-import Tag from './Tag';
-import ProductTag from './ProductTag';
+// import Product from './Product';
+// import Category from './Category';
+// import Tag from './Tag';
+// import ProductTag from './ProductTag';
+
+const Product = require('./Product');
+const Category = require('./Category');
+const Tag = require('./Tag');
+const ProductTag = require('./ProductTag');
 
 // export models
-export { Product, Category, Tag, ProductTag };
+//export { Product, Category, Tag, ProductTag };
+module.exports = {
+    Product,
+    Category,
+    Tag,
+    ProductTag,
+  };

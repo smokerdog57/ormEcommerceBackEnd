@@ -1,5 +1,6 @@
 // Populates the ProductTag model's table with initial data (products) by calling the seedProductTags function.
-import ProductTag from '../models/ProductTag.js';
+// import ProductTag from '../models/ProductTag.js';
+const { ProductTag } = require('../models');
 
 const productTagData = [
   {
@@ -54,4 +55,4 @@ const productTagData = [
 
 const seedProductTags = () => ProductTag.bulkCreate(productTagData);
 
-export default seedProductTags;
+module.exports = seedProductTags;

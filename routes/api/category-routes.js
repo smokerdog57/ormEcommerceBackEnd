@@ -1,14 +1,18 @@
-import express from 'express';
-const router = express.Router();
-import { Category, Product } from '../../models';
+// import express from 'express';
+// // import model (table) class instances
+// import Category from '../../models/Category.js';
+// import Product from '../../models/Product.js';
+
+const router = require('express').Router();
+const { Category, Product } = require('../../models');
 
 // find all categories and include associated products
 router.get('/', (req, res) => {
-  Category.findAll({
+   Category.findAll({
     include: [Product],
   })
     .then((categories) => res.json(categories))
-    .catch((err) => res.status(500).json({ error: 'Internal server error', details: err }));
+    .catch((err) => res.status(500).json({ error: '6. cate-routes: Internal server error', details: err }));
 });
 
 // find one category by its `id` value and include its associated Products
@@ -67,4 +71,5 @@ router.delete('/:id', (req, res) => {
     .catch((err) => res.status(400).json({ error: 'Bad request', details: err }));
 });
 
-export default router;
+//export default router;
+module.exports = router;

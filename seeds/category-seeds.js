@@ -1,5 +1,7 @@
 // Populates the Category model's table with initial data (categories) by calling the seedCategories function. 
-import Category from '../models/Category.js';
+//import Category from '../models/Category.js';
+
+const { Category } = require('../models');
 
 
 const categoryData = [
@@ -22,4 +24,5 @@ const categoryData = [
 
 const seedCategories = () => Category.bulkCreate(categoryData);
 
-export default seedCategories;
+//export default seedCategories;
+module.exports = seedCategories;

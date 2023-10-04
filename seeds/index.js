@@ -1,12 +1,19 @@
 //automates the process of initializing and seeding a database with initial data.
 
 // import seed functions
-import seedCategories from './category-seeds.js';
-import seedProducts from './product-seeds.js';
-import seedTags from './tag-seeds.js';
-import seedProductTags from './product-tag-seeds.js';
+// import seedCategories from './category-seeds.js';
+// import seedProducts from './product-seeds.js';
+// import seedTags from './tag-seeds.js';
+// import seedProductTags from './product-tag-seeds.js';
 
-import sequelize from '../config/connection.js';
+// import sequelize from '../config/connection.js';
+const seedCategories = require('./category-seeds');
+const seedProducts = require('./product-seeds');
+const seedTags = require('./tag-seeds');
+const seedProductTags = require('./product-tag-seeds');
+
+const sequelize = require('../config/connection');
+
 
 const seedAll = async () => {
   try {
