@@ -1,12 +1,7 @@
 // This script defines the `/api/tags` endpoint
-// import { Router } from 'express';
-// // import model (table) class instances
-// import Tag from '../../models/Tag.js';
-// import Product from '../../models/Product.js';
-// import ProductTag from '../../models/ProductTag.js';
+const router = require('express').Router();  // import { Router } from 'express';
 
-const router = require('express').Router();
-const { Tag, Product, ProductTag } = require('../../models');
+const { Tag, Product, ProductTag } = require('../../models'); // import model (table) class instances
 
 router.get('/', (req, res) => {
   Tag.findAll({

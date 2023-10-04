@@ -1,7 +1,7 @@
 // Populates the Tag model's table with initial data (tags) by calling the seedTags function.
-//import Tag from '../models/Tag.js';
 const { Tag } = require('../models');
 
+// seed the tag data
 const tagData = [
   {
     tag_name: 'rock music',

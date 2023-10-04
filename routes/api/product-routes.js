@@ -1,12 +1,7 @@
 // This script defines the `/api/products` endpoint
-// import { Router } from 'express';   // import Router library from express
-// // import model (table) class instances
-// import Category from '../../models/Category.js';
-// import Product from '../../models/Product.js';
-// import Tag from '../../models/Tag.js';
-// import ProductTag from '../../models/ProductTag.js';
-const router = require('express').Router();
-const { Product, Category, Tag, ProductTag } = require('../../models');
+
+const router = require('express').Router();  // import { Router } from 'express'
+const { Product, Category, Tag, ProductTag } = require('../../models'); // import model instances
 
 // get all products and include its associated Category and Tag data. This route is triggered when a GET 
 // request is made to the root path '/api/products'. json formatted array of product objects are returned.
@@ -46,9 +41,8 @@ router.get('/:id', (req, res) => {
     });
 });
 
-// Create a new product. This route is triggered when a POST 
-// request is made to the root path '/api/products' with the req.body specified in the Insomnia JSON body section.
-// A JSON-formatted product object is returned.
+// Create a new product. This route is triggered when a POST // request is made to the 
+//root path '/api/products' with the req.body specified in the Insomnia JSON body section. A JSON-formatted product object is returned.
 router.post('/', (req, res) => {
   /* req.body should look like this...
     {

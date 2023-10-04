@@ -1,7 +1,7 @@
 // Populates the ProductTag model's table with initial data (products) by calling the seedProductTags function.
-// import ProductTag from '../models/ProductTag.js';
 const { ProductTag } = require('../models');
 
+// seed the product tag data
 const productTagData = [
   {
     product_id: 1,
