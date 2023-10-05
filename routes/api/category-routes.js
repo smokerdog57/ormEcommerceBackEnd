@@ -7,7 +7,7 @@ router.get('/', (req, res) => {
     include: [Product],
   })
     .then((categories) => res.json(categories))
-    .catch((err) => res.status(500).json({ error: '6. cate-routes: Internal server error', details: err }));
+    .catch((err) => res.status(500).json({ error: 'Internal server error', details: err }));
 });
 
 // get one category by its `id` value and include its associated Products

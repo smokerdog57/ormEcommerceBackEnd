@@ -11,9 +11,9 @@
 ![npm](https://img.shields.io/badge/npm-6.14.4-blue.svg)
 ![Express](https://img.shields.io/badge/Express-red.svg)
 ![chrome castify](https://img.shields.io/badge/chrome%20castify-orange.svg)
-![Sequelize](https://img.shields.io/badge/Sequelize-blue.svg)](https://www.npmjs.com/package/sequelize)
-![MySQL2](https://img.shields.io/badge/MySQL2-blue.svg)](https://www.npmjs.com/package/mysql2)
-![dotenv](https://img.shields.io/badge/dotenv-blue.svg)](https://www.npmjs.com/package/dotenv)
+![Sequelize](https://img.shields.io/badge/Sequelize-blue.svg)
+![MySQL2](https://img.shields.io/badge/MySQL2-blue.svg)
+![dotenv](https://img.shields.io/badge/dotenv-blue.svg)
 
 ## Table of Contents
 - [Description](#description)
@@ -39,21 +39,21 @@ The next step is to start the backend server.  To start Server, execute the foll
 ## Installation
   
 1. create a new github repository named 'ormEcommerceBackEnd'
-2. launch microsoft visual studio Code app
+2. launch microsoft visual studio
 3. enter cli:  cd ~/bootcamp/homework
 4. enter cli:  git clone <repository> // creates ormEcommerceBackEnd directory
 5. enter cli:  cd ormEcommerceBackEnd
 6. enter cli:  npm init // this initializes the package.json project file
-7. edit the package.json file to add the following dependencies:
-	a. "dotenv": "^8.2.0",
-  b. "express": "^4.17.1",
-  c. "mysql2": "^2.1.0",
-  d. "sequelize": "^5.21.7"
+7. Edit the `package.json` file to add the following dependencies:
+   - "dotenv": "^8.2.0",
+   - "express": "^4.17.1",
+   - "mysql2": "^2.1.0",
+   - "sequelize": "^5.21.7"
 8. enter cli: npm install //install the dependencies
 9. install Insomnia website: Go to Insomnia website using your web browser, download and install.
-	9.1 Go to the official Insomnia website at https://insomnia.rest/download/ to download the client.
-	9.2 Download Insomnia for Windows.
-	9.3 Run the downloaded installer and follow the installation instructions.
+	- Go to the official Insomnia website at https://insomnia.rest/download/ to download the client.
+	- Download Insomnia for Windows.
+	- Run the downloaded installer and follow the installation instructions.
 10. After running above steps create, copy and/or confirm the following directory structure and files:
 	assets			// copy from challenge
 	config
@@ -90,8 +90,8 @@ The next step is to start the backend server.  To start Server, execute the foll
 
 1. open MS Visual Studio and terminal
 2. enter cli:  cd homework/ormEcommerceBackEnd
-2. enter cli:  mysql -u root -p <when prompted enter password>
-3. enter cli:  source ./db/schema.sql    // create the database
+3. enter cli:  mysql -u root -p <when prompted enter password>
+4. enter cli:  source ./db/schema.sql    // create the database
 5. open a second MS Visual Studio terminal session
 6. enter cli:  cd homework/ormEcommerceBackEnd
 7. enter cli:  npm run seed
@@ -99,7 +99,7 @@ The next step is to start the backend server.  To start Server, execute the foll
 9. Launch Insomnia from your desktop or the Start menu.
 10. After installation is complete, launch Insomnia from your applications or programs menu.
 11. Open Insomnia and set up a new workspace.
-12. Create Requests: creating requests to test the API endpoints and organized into folders and CRUD request and request bodies.
+12. Create Requests to test the API endpoints and organized into folders and CRUD request and request bodies.
 13. Use the created requests to test the app by sending requests to API server (e.g., http://localhost:3001) and receive responses.
 
 ## Requirements
